@@ -110,7 +110,7 @@ func GetTokenPrices(symbols []string) (map[string]float64, error) {
 			okxSymbol := OkxSymbolMap[symbol]
 			if d.InstId == okxSymbol {
 				price, _ := strconv.ParseFloat(d.Last, 64)
-				prices[okxSymbol] = price
+				prices[symbol] = price
 			}
 		}
 	}
