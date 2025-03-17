@@ -23,7 +23,7 @@ go build
 1. **Paper Perpetual Trading**: Simulate perpetual trading without real money.
 2. **Liquidation**: Handle liquidation processes within the trading system.
 3. **Leader Board**: Track and display the top traders.
-4. **Solana Program Indexing**: Index and interact with Solana programs.
+4. **Program Indexing**: Index and interact with svm programs.
 
 ## Getting Started
 
