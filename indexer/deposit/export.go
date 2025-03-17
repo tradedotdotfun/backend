@@ -147,6 +147,12 @@ func (e *DepositExporter) saveDepositAndCreateAccount(address string, txSig *rpc
 			return err
 		}
 
+		if err := tx.Model(&model.Position{}).
+			Where("round = ? AND address = ? AND status = ?", round, address, model.StatusActive).
+			Update("status", model.StatusRemoved).Error; err != nil {
+			return err
+		}
+
 		// 새로운 account 생성
 		if err := tx.Create(&model.Account{
 			Round:     round,

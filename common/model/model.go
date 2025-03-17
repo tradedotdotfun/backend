@@ -39,6 +39,7 @@ const (
 	StatusActive     PositionStatus = "active"
 	StatusClosed     PositionStatus = "closed"
 	StatusLiquidated PositionStatus = "liquidated"
+	StatusRemoved    PositionStatus = "removed"
 )
 
 type Position struct {
