@@ -116,7 +116,7 @@ func ClosePosition(address string, positionId uint64, percentage float64) (*type
 		// 원금에 pnl을 더했을때도 음수인 경우는 청산 처리를 한다
 		// Get account to update balance
 		account := &model.Account{}
-		if err := tx.Where("address = ?", address).First(account).Error; err != nil {
+		if err := tx.Where("address = ? and deleted = false", address).First(account).Error; err != nil {
 			tx.Rollback()
 			return nil, err
 		}
