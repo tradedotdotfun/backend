@@ -15,4 +15,5 @@ var COIN_LIST = []string{
 	"BTCUSDT",
 	"ETHUSDT",
 	"SOLUSDT",
+	"SONICUSDT",
 }

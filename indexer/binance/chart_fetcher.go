@@ -19,7 +19,6 @@ func NewChartFetcher() *ChartFetcher {
 
 func (e *ChartFetcher) Fetch() {
 	for _, coinID := range config.COIN_LIST {
-		to := time.Now()
 		// Get latest timestamp from ChartData for this coinID
 		var from time.Time
 		err := db.GetConnection().Model(&model.ChartData{}).
@@ -36,7 +35,7 @@ func (e *ChartFetcher) Fetch() {
 			continue
 		}
 
-		chartData, err := GetChartData(coinID, from.UnixMilli(), to.Unix())
+		chartData, err := GetChartData(coinID, from)
 		if err != nil {
 			log.Info(err)
 			continue

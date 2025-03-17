@@ -6,10 +6,10 @@ import (
 	"os"
 	"os/signal"
 
-	"tradedotdotfun-backend/indexer/binance"
 	"tradedotdotfun-backend/indexer/db"
 	"tradedotdotfun-backend/indexer/deposit"
 	"tradedotdotfun-backend/indexer/leaderboard"
+	"tradedotdotfun-backend/indexer/okx"
 	"tradedotdotfun-backend/indexer/round"
 )
 
@@ -17,8 +17,8 @@ func main() {
 	flag.Parse()
 	db.Init()
 
-	binanceFetcher := binance.NewFetcher()
-	binanceFetcher.Fetch()
+	okxFetcher := okx.NewFetcher()
+	okxFetcher.Fetch()
 
 	roundManager := round.NewRoundManager()
 	roundManager.Start()

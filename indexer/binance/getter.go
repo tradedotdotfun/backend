@@ -17,8 +17,8 @@ const (
 
 type BinanceCandle []interface{}
 
-func GetChartData(symbol string, lastTime, endTime int64) ([]model.ChartData, error) {
-	startTime := lastTime + 1
+func GetChartData(symbol string, lastTime time.Time) ([]model.ChartData, error) {
+	startTime := lastTime.UnixMilli() + 1
 	var allCandles []model.ChartData
 	url := fmt.Sprintf("%s?symbol=%s&interval=%s&startTime=%d&limit=%d", KILINES_API_URL, symbol, KILINES_INTERVAL, startTime, KILINES_LIMIT)
 
