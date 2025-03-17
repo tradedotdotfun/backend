@@ -23,7 +23,7 @@ type DepositExporter struct {
 
 func NewDepositExporter() *DepositExporter {
 	return &DepositExporter{
-		client: rpc.New(config.SOLANA_RPC_URL),
+		client: rpc.New(config.RPC_URL),
 	}
 }
 
