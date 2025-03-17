@@ -64,11 +64,8 @@ func (e *DepositExporter) FetchDepositData() error {
 		return errors.New("failed to get signatures for address")
 	}
 
-	// 3. Finalized 되지 않은 트랜잭션은 무시한다.
-	txSigs := e.filterFinalizedSignatures(rawTxSigs)
-
-	// 4. DepositEvent를 추출하고 account를 생성한다.
-	for _, sig := range txSigs {
+	// 3. DepositEvent를 추출하고 account를 생성한다.
+	for _, sig := range rawTxSigs {
 		tx, err := e.getTransaction(sig.Signature)
 		if err != nil {
 			return errors.New("failed to get transaction")
