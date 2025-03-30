@@ -7,7 +7,7 @@ import (
 	"os/signal"
 
 	"tradedotdotfun-backend/indexer/db"
-	"tradedotdotfun-backend/indexer/deposit"
+	"tradedotdotfun-backend/indexer/export"
 	"tradedotdotfun-backend/indexer/leaderboard"
 	"tradedotdotfun-backend/indexer/okx"
 	"tradedotdotfun-backend/indexer/round"
@@ -23,11 +23,11 @@ func main() {
 	roundManager := round.NewRoundManager()
 	roundManager.Start()
 
-	leaderBoardProcessor := leaderboard.NewLeaderBoardProcessor()
-	leaderBoardProcessor.Start()
+	LeaderBoardManager := leaderboard.NewLeaderBoardManager()
+	LeaderBoardManager.Start()
 
-	depositExporter := deposit.NewDepositExporter()
-	depositExporter.Export()
+	programExporter := export.NewProgramExporter()
+	programExporter.Export()
 
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, os.Interrupt)

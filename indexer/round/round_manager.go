@@ -3,7 +3,6 @@ package round
 import (
 	"fmt"
 	"time"
-	"tradedotdotfun-backend/indexer/cache"
 	"tradedotdotfun-backend/indexer/config"
 
 	"github.com/robfig/cron/v3"
@@ -16,8 +15,6 @@ type RoundManager struct {
 
 // NewRoundManager: RoundManager 인스턴스 생성
 func NewRoundManager() *RoundManager {
-	// TODO: 임시 처리
-	cache.SetRound(0)
 	return &RoundManager{
 		cron: cron.New(cron.WithSeconds()), // 초 단위 스케줄러
 	}
