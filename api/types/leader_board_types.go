@@ -9,3 +9,5 @@ type LeaderBoardData struct {
 }
 
 type GetLeaderBoardResponse []LeaderBoardData
+
+type UpdateLeaderBoardResponse []LeaderBoardData

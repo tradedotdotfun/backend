@@ -6,6 +6,7 @@ import (
 	"time"
 	"tradedotdotfun-backend/api/types"
 	"tradedotdotfun-backend/common/db"
+	commonservice "tradedotdotfun-backend/common/service"
 
 	"github.com/patrickmn/go-cache"
 )
@@ -45,4 +46,17 @@ func applyLimit(leaderBoard []types.LeaderBoardData, limit uint64) []types.Leade
 		limit = uint64(len(leaderBoard))
 	}
 	return leaderBoard[:limit]
+}
+
+func UpdateLeaderBoard() (types.UpdateLeaderBoardResponse, error) {
+	round := GetRound().Round
+	price := GetPrice()
+	leaderBoardProcessor := commonservice.NewLeaderBoardProcessor()
+	leaderBoardProcessor.Process(round, price)
+	leaderBoard, err := FetchLeaderBoardFromDB(round)
+	if err != nil {
+		return types.UpdateLeaderBoardResponse{}, err
+	}
+	leaderboardCache.Set(strconv.FormatUint(round, 10), leaderBoard, cache.DefaultExpiration)
+	return leaderBoard, nil
 }

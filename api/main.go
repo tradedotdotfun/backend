@@ -56,6 +56,7 @@ func main() {
 	controller.SetPositionRouter(app.Group("/position"))
 	controller.SetAccountRouter(app.Group("/account"))
 	controller.SetLeaderBoardRouter(app.Group("/leaderboard"))
+	controller.SetAdminController(app.Group("/admin"))
 
 	log.Println("Ready to Serve")
 
