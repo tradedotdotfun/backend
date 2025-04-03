@@ -7,6 +7,7 @@ import (
 	"os/signal"
 
 	"tradedotdotfun-backend/common/db"
+	"tradedotdotfun-backend/indexer/cache"
 	"tradedotdotfun-backend/indexer/export"
 	"tradedotdotfun-backend/indexer/leaderboard"
 	"tradedotdotfun-backend/indexer/okx"
@@ -16,6 +17,8 @@ import (
 func main() {
 	flag.Parse()
 	db.Init()
+
+	cache.Init()
 
 	okxFetcher := okx.NewFetcher()
 	okxFetcher.Fetch()
