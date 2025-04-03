@@ -28,7 +28,7 @@ func main() {
 
 	app.Use(recover.New())
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "*",
+		AllowOrigins: "https://tradedot.fun, https://*.web.app",
 		AllowHeaders: "*",
 	}))
 	app.Use(pprof.New(pprof.Config{Prefix: "/a18761"}))
