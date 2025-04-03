@@ -156,7 +156,7 @@ func (e *ProgramExporter) filterFinalizedSignatures(txSigs []*rpc.TransactionSig
 	]
 */
 func (e *ProgramExporter) extractParticipatedEvent(tx *rpc.GetTransactionResult) (bool, string, uint64) {
-	logLength := 8
+	logLength := 7
 	txLogs := tx.Meta.LogMessages
 	logPattern := regexp.MustCompile(`Program log: User participated: user=([^ ]+) round=(\d+)`)
 	// txLogs 배열이 정확한 순서로 되어 있는지 확인하고, 조건이 맞으면 주소 추출
@@ -165,9 +165,8 @@ func (e *ProgramExporter) extractParticipatedEvent(tx *rpc.GetTransactionResult)
 			txLogs[i+1] == "Program log: Instruction: DepositSol" &&
 			txLogs[i+2] == "Program 11111111111111111111111111111111 invoke [2]" &&
 			txLogs[i+3] == "Program 11111111111111111111111111111111 success" &&
-			strings.HasPrefix(txLogs[i+5], "Program data:") &&
-			strings.HasPrefix(txLogs[i+6], "Program "+commonconfig.DEPOSIT_ADDRESS.String()+" consumed") &&
-			txLogs[i+7] == "Program "+commonconfig.DEPOSIT_ADDRESS.String()+" success" {
+			strings.HasPrefix(txLogs[i+5], "Program "+commonconfig.DEPOSIT_ADDRESS.String()+" consumed") &&
+			txLogs[i+6] == "Program "+commonconfig.DEPOSIT_ADDRESS.String()+" success" {
 
 			matches4 := logPattern.FindStringSubmatch(txLogs[i+4])
 
