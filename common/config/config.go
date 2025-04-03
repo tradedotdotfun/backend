@@ -25,7 +25,6 @@ var (
 	RPC_URL         string
 	DEPOSIT_ADDRESS solana.PublicKey
 	SQLITE_DB_PATH  string
-	IDL_PATH        string
 	ADMIN_PUBKEY    string
 )
 
@@ -53,12 +52,6 @@ func init() {
 		log.Fatal("DB_PATH is not set in the environment variables")
 	}
 	SQLITE_DB_PATH = dbPath
-
-	idlPath := os.Getenv("IDL_PATH")
-	if idlPath == "" {
-		log.Fatal("IDL_PATH is not set in the environment variables")
-	}
-	IDL_PATH = idlPath
 
 	rpcUrl := os.Getenv("RPC_URL")
 	if rpcUrl == "" {
