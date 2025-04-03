@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 	"tradedotdotfun-backend/api/controller"
-	"tradedotdotfun-backend/api/db"
+	"tradedotdotfun-backend/common/db"
 
 	"github.com/gofiber/fiber/v2/middleware/pprof"
 

@@ -4,8 +4,8 @@ import (
 	"log"
 	"strconv"
 	"time"
-	"tradedotdotfun-backend/api/db"
 	"tradedotdotfun-backend/api/types"
+	"tradedotdotfun-backend/common/db"
 
 	"github.com/patrickmn/go-cache"
 )

@@ -2,9 +2,9 @@ package liquidation
 
 import (
 	"fmt"
+	"tradedotdotfun-backend/common/db"
 	"tradedotdotfun-backend/common/model"
 	"tradedotdotfun-backend/indexer/cache"
-	"tradedotdotfun-backend/indexer/db"
 
 	"github.com/gofiber/fiber/v2/log"
 )

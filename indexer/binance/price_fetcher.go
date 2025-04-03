@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"log"
 	"tradedotdotfun-backend/common/config"
+	"tradedotdotfun-backend/common/db"
 	"tradedotdotfun-backend/common/model"
 	"tradedotdotfun-backend/indexer/cache"
-	"tradedotdotfun-backend/indexer/db"
 	"tradedotdotfun-backend/indexer/liquidation"
 
 	"gorm.io/gorm/clause"

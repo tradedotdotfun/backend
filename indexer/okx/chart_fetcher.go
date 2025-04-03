@@ -4,8 +4,8 @@ import (
 	"errors"
 	"time"
 	"tradedotdotfun-backend/common/config"
+	"tradedotdotfun-backend/common/db"
 	"tradedotdotfun-backend/common/model"
-	"tradedotdotfun-backend/indexer/db"
 
 	"github.com/gofiber/fiber/v2/log"
 	"gorm.io/gorm"

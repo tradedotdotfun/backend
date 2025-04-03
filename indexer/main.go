@@ -6,7 +6,7 @@ import (
 	"os"
 	"os/signal"
 
-	"tradedotdotfun-backend/indexer/db"
+	"tradedotdotfun-backend/common/db"
 	"tradedotdotfun-backend/indexer/export"
 	"tradedotdotfun-backend/indexer/leaderboard"
 	"tradedotdotfun-backend/indexer/okx"

@@ -3,8 +3,8 @@ package service
 import (
 	"sort"
 	"sync"
-	"tradedotdotfun-backend/api/db"
 	"tradedotdotfun-backend/common/config"
+	"tradedotdotfun-backend/common/db"
 	"tradedotdotfun-backend/common/model"
 
 	"github.com/gofiber/fiber/v2/log"

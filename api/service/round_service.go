@@ -4,8 +4,8 @@ import (
 	"log"
 	"time"
 	"tradedotdotfun-backend/api/config"
-	"tradedotdotfun-backend/api/db"
 	"tradedotdotfun-backend/api/types"
+	"tradedotdotfun-backend/common/db"
 	"tradedotdotfun-backend/common/model"
 )
 
