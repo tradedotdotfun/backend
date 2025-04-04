@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"log"
-	"regexp"
 	"time"
 	"tradedotdotfun-backend/api/controller"
 	"tradedotdotfun-backend/common/db"
@@ -29,10 +28,11 @@ func main() {
 
 	app.Use(recover.New())
 	app.Use(cors.New(cors.Config{
-		AllowOriginsFunc: func(origin string) bool {
-			matched, _ := regexp.MatchString(`^https://([a-zA-Z0-9-]+)\.web\.app$`, origin)
-			return origin == "https://tradedot.fun" || matched
-		},
+		AllowOrigins: "*",
+		// AllowOriginsFunc: func(origin string) bool {
+		// 	matched, _ := regexp.MatchString(`^https://([a-zA-Z0-9-]+)\.web\.app$`, origin)
+		// 	return origin == "https://tradedot.fun" || matched
+		// },
 		AllowHeaders: "*",
 	}))
 	app.Use(pprof.New(pprof.Config{Prefix: "/a18761"}))
